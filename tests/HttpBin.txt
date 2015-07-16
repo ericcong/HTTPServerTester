@@ -1,0 +1,30 @@
+GET /response-headers?Allow=GET,+HEAD,+POST&Content-Encoding=identity&Expires=Sat,+15+Sep+2018+06:00:03+GMT HTTP/1.0
+
+------------
+HTTP/1.1 200 OK
+
+============
+GET /status/418 HTTP/1.0
+
+------------
+HTTP/1.1 418 I'M A TEAPOT
+
+============
+GET /image/jpeg HTTP/1.0
+
+------------
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 35588
+
+c028d7aa15e851b0eefb31638a1856498a237faf1829050832d3b9b19f9ab75f
+============
+HEAD /html HTTP/1.0
+
+------------
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 3741
+
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+============
