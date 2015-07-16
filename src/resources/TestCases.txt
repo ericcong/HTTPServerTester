@@ -1,0 +1,158 @@
+GET /index.html
+
+------------
+HTTP/1.0 400 Bad Request
+
+============
+KICK /index.html HTTP/1.0
+
+------------
+HTTP/1.0 400 Bad Request
+
+============
+GET /i n d e x . h t m l HTTP/1.0
+
+------------
+HTTP/1.0 400 Bad Request
+
+============
+get /index.html HTTP/1.0
+
+------------
+HTTP/1.0 400 Bad Request
+
+============
+GET /index.html HTTP/1.1
+
+------------
+HTTP/1.0 505 HTTP Version Not Supported
+
+============
+PUT /index.html HTTP/1.0
+
+------------
+HTTP/1.0 501 Not Implemented
+
+============
+DELETE /index.html HTTP/1.0
+
+------------
+HTTP/1.0 501 Not Implemented
+
+============
+LINK /index.html HTTP/1.0
+
+------------
+HTTP/1.0 501 Not Implemented
+
+============
+UNLINK /index.html HTTP/1.0
+
+------------
+HTTP/1.0 501 Not Implemented
+
+============
+GET /top_secret.txt HTTP/1.0
+
+------------
+HTTP/1.0 403 Forbidden
+
+============
+GET /missing.zip HTTP/1.0
+
+------------
+HTTP/1.0 404 Not Found
+
+============
+GET /index.html HTTP/1.0
+
+------------
+HTTP/1.0 200 OK
+Content-Type: text/html
+Content-Length: 3191
+Last-Modified: Wed, 15 Jul 2015 04:14:40 GMT
+Content-Encoding: identity
+
+48bd1fcde6d55334a0633ac52772b9267da0790bd154eaaa90b313ec0c0e5511
+============
+HEAD /index.html HTTP/1.0
+
+------------
+HTTP/1.0 200 OK
+Content-Type: text/html
+Content-Length: 3191
+Last-Modified: Wed, 15 Jul 2015 04:14:40 GMT
+Content-Encoding: identity
+
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+============
+GET /resources/google.png HTTP/1.0
+
+------------
+HTTP/1.0 200 OK
+Content-Type: image/png
+Content-Length: 14022
+Last-Modified: Wed, 09 Oct 2013 01:35:39 GMT
+Content-Encoding: identity
+
+464a1654fa85848684d56d48c6d5385b92f55e36791e9d55e09bf7f23281604e
+============
+POST /resources/google.png HTTP/1.0
+
+------------
+HTTP/1.0 200 OK
+Content-Type: image/png
+Content-Length: 14022
+Last-Modified: Wed, 09 Oct 2013 01:35:39 GMT
+Content-Encoding: identity
+
+464a1654fa85848684d56d48c6d5385b92f55e36791e9d55e09bf7f23281604e
+============
+GET /resources/bitcoin.pdf HTTP/1.0
+If-Modified-Since: Tue, 14 Jul 2015 18:00:00 GMT
+
+------------
+HTTP/1.0 304 Not Modified
+
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+============
+GET /resources/ls HTTP/1.0
+If-Modified-Since: Tue, 14 Jul 2015 18:00:00 GMT
+
+------------
+HTTP/1.0 200 OK
+Content-Type: application/octet-stream
+Content-Length: 34640
+Last-Modified: Wed, 15 Jul 2015 04:53:48 GMT
+Content-Encoding: identity
+
+482c752811c90d450fe46c04aa29ad588bbd1c03d79fc16cf6ef0a7175bd5615
+============
+GET /resources/bitcoin.pdf HTTP/1.0
+If-Modified-Since: foobar 30000
+
+------------
+HTTP/1.0 200 OK
+Content-Type: application/pdf
+Content-Length: 184292
+Last-Modified: Tue, 14 Jul 2015 14:13:49 GMT
+Content-Encoding: identity
+
+b1674191a88ec5cdd733e4240a81803105dc412d6c6708d53ab94fc248f4f553
+============
+HEAD /resources/bitcoin.pdf HTTP/1.0
+If-Modified-Since: Tue, 14 Jul 2015 18:00:00 GMT
+
+------------
+HTTP/1.0 200 OK
+Content-Type: application/pdf
+Content-Length: 184292
+Last-Modified: Tue, 14 Jul 2015 14:13:49 GMT
+Content-Encoding: identity
+
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+============
+------------
+HTTP/1.0 408 Request Timeout
+
+============
