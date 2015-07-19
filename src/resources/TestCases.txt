@@ -114,7 +114,6 @@ If-Modified-Since: Tue, 14 Jul 2015 18:00:00 GMT
 ------------
 HTTP/1.0 304 Not Modified
 
-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ============
 GET /resources/ls HTTP/1.0
 If-Modified-Since: Tue, 14 Jul 2015 18:00:00 GMT
