@@ -404,7 +404,6 @@ class HTTPServerTester {
                 /* 200, 304: Expires: a future date */
                 if (testCaseStatusCode.equals("HTTP/1.0 200 OK") ||
                         testCaseStatusCode.equals("HTTP/1.0 304 Not Modified")){
-                    /* Do dynamic tests, that is, test the value of certain headers with a logic */
                     List<String> testExpiresFieldResult = testExpiresField(responseHeaders);
                     bugs.addAll(testExpiresFieldResult);
                 }
@@ -412,7 +411,7 @@ class HTTPServerTester {
 
                 /* If test case includes a shasum, then check payload, compare shasum */
                 /* First get payload size */
-                int payloadSize = -1;
+                int payloadSize = 0;
                 if (testCaseResponsePayloadShasum != null) {
                     for (String responseHeader : responseHeaders) {
                         if (responseHeader.startsWith("Content-Length:")) {
@@ -434,10 +433,7 @@ class HTTPServerTester {
                     }
 
                     /* Then check the payload's shasum and compare */
-                    if (payloadSize == -1) {
-                        bugs.add("Payload not found");
-                    }
-                    else if (payloadSize < 0) {
+                    if (payloadSize < 0) {
                         bugs.add("The value of \"Content-Length\" must not be negative");
                     }
                     else {
